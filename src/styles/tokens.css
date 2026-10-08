@@ -1,0 +1,22 @@
+:root {
+  --black: #08080a;
+  --black-soft: #111114;
+  --charcoal: #1a1a1e;
+  --glass: rgba(255, 255, 255, 0.04);
+  --glass-border: rgba(255, 255, 255, 0.09);
+  --crimson: #c81e3a;
+  --crimson-bright: #ff2d4d;
+  --crimson-dim: #5c0e1c;
+  --white: #f5f4f2;
+  --gray: #8f8f96;
+  --gray-dim: #5a5a60;
+
+  --font-display: 'Anton', sans-serif;
+  --font-label: 'Bebas Neue', sans-serif;
+  --font-body: 'Inter', sans-serif;
+
+  --header-h: 5.5rem;
+  --section-x: clamp(1.5rem, 5vw, 4rem);
+  --section-y: clamp(5rem, 10vw, 9rem);
+  --container-max: 1280px;
+}
