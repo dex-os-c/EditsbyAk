@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react'
 import { useModal } from '../lib/modalStore'
+import { onImgError } from '../lib/media'
 import Icon from './Icon.jsx'
 import './ProjectModal.css'
 
@@ -43,7 +44,11 @@ export default function ProjectModal() {
               <video ref={videoRef} src={project.video} controls playsInline preload="metadata" />
             ) : (
               <>
-                <img src={project.thumb} alt={project.title} />
+                <img
+                  src={project.thumb}
+                  onError={onImgError(project.thumbFallback || '/assets/placeholder-project.svg')}
+                  alt={project.title}
+                />
                 <div className="modal-play-badge">
                   <div className="showcase-play" style={{ width: 64, height: 64 }}>
                     <Icon name="play" size={24} />

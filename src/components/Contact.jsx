@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react'
-import { CONTACT } from '../data/content'
+import { CARD_IMAGE, CONTACT } from '../data/content'
 import { fetchReviews } from '../lib/reviews'
 import { useModal } from '../lib/modalStore'
 import { useReveal } from '../hooks/useReveal'
+import { onImgError } from '../lib/media'
 import Icon from './Icon.jsx'
 import ReviewForm from './ReviewForm.jsx'
 import ReviewsWall from './ReviewsWall.jsx'
@@ -50,18 +51,19 @@ export default function Contact() {
             onClick={() => openModal({
               title: 'AK EDITS — Visiting Card',
               desc: 'Official brand identity card.',
-              thumb: '/assets/placeholder-card.svg',
+              thumb: CARD_IMAGE.src,
+              thumbFallback: CARD_IMAGE.fallback,
               video: '',
             })}
           >
-            <img src="/assets/placeholder-card.svg" alt="AK EDITS visiting card" />
+            <img src={CARD_IMAGE.src} onError={onImgError(CARD_IMAGE.fallback)} alt="AK EDITS visiting card" />
             <span className="card-preview-tag">Tap to view business card</span>
           </button>
         </div>
 
         <div ref={formRef} className={`contact-form-wrap reveal${formVisible ? ' in' : ''}`}>
           <div className="review-form-head">
-            <div className="eyebrow">Share Your Experience</div>
+            <div className="kicker">Share Your Experience</div>
             <h3 className="review-form-title">Leave A Review</h3>
           </div>
           <ReviewForm onPosted={handlePosted} />

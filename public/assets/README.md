@@ -1,14 +1,24 @@
 # Assets
 
-Placeholder SVGs live here so the site never shows a broken image. Swap them
-for the real files, keeping the same filenames (or update the paths in
-`src/data/content.js`):
+Drop real files in here using these **exact filenames** (matching the
+client's original site) and they'll be picked up automatically -- nothing
+else needs to change in the code. Until a file is uploaded, its matching
+placeholder shows instead (never a broken image/video).
 
-- `placeholder-profile.svg` → a real photo of AK, used in the hero and about
-  sections. Recommended: a portrait-orientation JPG/WEBP, ~1200px tall.
-- `placeholder-card.svg` → the actual visiting card design, shown in the
-  contact section's lightbox.
-- `placeholder-project.svg` → one per portfolio project. Each project in
-  `PROJECTS` (src/data/content.js) can also set a `video` path (an mp4 in
-  this folder) to make the portfolio modal play a real clip instead of
-  showing the "coming soon" placeholder.
+| File | Used for |
+|---|---|
+| `profile.jpg` | Portrait used in the hero and about sections. Portrait orientation, ~1200px tall recommended. |
+| `card.png` | The business card design, shown in the contact section's lightbox. |
+| `wedding.mp4` | "Wedding Edit" portfolio piece. |
+| `festival.mp4` | "Festival Edit" portfolio piece. |
+| `motion-graphics.mp4` | "Motion Graphics Edit" portfolio piece. |
+| `insta-reel.mp4` | "Insta Reel Edit" portfolio piece. |
+| `showreel.mp4` | Plays when the "Watch The Work" section's play button is clicked. |
+
+To add a new portfolio project (not just replace one of the four above),
+add an entry to the `PROJECTS` array in `src/data/content.js` with its own
+`video` filename.
+
+Keep videos web-sized (H.264 mp4, reasonably compressed) -- these autoplay
+muted on hover in the portfolio gallery, so a multi-hundred-MB file will
+make that feel sluggish.

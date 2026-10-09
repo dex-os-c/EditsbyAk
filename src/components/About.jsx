@@ -1,5 +1,6 @@
-import { CAPABILITIES } from '../data/content'
+import { CAPABILITIES, PROFILE_IMAGE } from '../data/content'
 import { useReveal } from '../hooks/useReveal'
+import { onImgError } from '../lib/media'
 import './About.css'
 
 export default function About() {
@@ -14,12 +15,16 @@ export default function About() {
             {Array.from({ length: 8 }, (_, i) => <span key={i} />)}
           </div>
           <div className="about-frame">
-            <img src="/assets/placeholder-profile.svg" alt="AK, founder of AK EDITS" />
+            <img
+              src={PROFILE_IMAGE.src}
+              onError={onImgError(PROFILE_IMAGE.fallback)}
+              alt="AK, founder of AK EDITS"
+            />
           </div>
         </div>
         <div ref={copyRef} className={`about-copy reveal${copyVisible ? ' in' : ''}`}>
           <div className="about-heading">
-            <div className="eyebrow">Who's Behind The Frame</div>
+            <div className="kicker">Who's Behind The Frame</div>
             <h2>The Editor Behind The Frame</h2>
           </div>
           <p className="about-text">

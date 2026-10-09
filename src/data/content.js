@@ -1,3 +1,10 @@
+// Real filenames from the client's original site. Each has a matching
+// placeholder in public/assets/ as a fallback (see the onImgError helper
+// in src/lib/media.js) so the site never shows a broken image before
+// these are uploaded.
+export const PROFILE_IMAGE = { src: '/assets/profile.jpg', fallback: '/assets/placeholder-profile.svg' }
+export const CARD_IMAGE = { src: '/assets/card.png', fallback: '/assets/placeholder-card.svg' }
+
 export const NAV_LINKS = [
   { href: '#hero', label: 'Home' },
   { href: '#about', label: 'About' },
@@ -58,10 +65,11 @@ export const SERVICES = [
   },
 ]
 
-// Swap `thumb` and `video` below for real files once the client provides
-// them (see public/assets/README.md). A project with no `video` set shows
-// its thumbnail with a "video coming soon" hint in the modal instead of a
-// broken player.
+// Filenames match the client's original site exactly (assets/wedding.mp4,
+// assets/festival.mp4, etc.) -- see public/assets/README.md for where to
+// drop the real files. `thumb` is only the fallback shown until the video
+// loads (or if it 404s because the file hasn't been uploaded yet); once a
+// real video is in place its own first frame is what visitors actually see.
 export const FILTERS = [
   { value: 'all', label: 'All' },
   { value: 'wedding', label: 'Wedding' },
@@ -76,40 +84,40 @@ export const PROJECTS = [
     category: 'wedding',
     desc: 'Cinematic wedding highlight film — color graded and paced for emotion.',
     thumb: '/assets/placeholder-project.svg',
-    video: '',
+    video: '/assets/wedding.mp4',
   },
   {
     title: 'Festival Edit',
     category: 'festival',
     desc: 'High-energy festival recap cut synced to music and crowd moments.',
     thumb: '/assets/placeholder-project.svg',
-    video: '',
+    video: '/assets/festival.mp4',
   },
   {
     title: 'Motion Graphics Edit',
     category: 'motion',
     desc: 'Kinetic titles, transitions and animated visual effects showcase.',
     thumb: '/assets/placeholder-project.svg',
-    video: '',
+    video: '/assets/motion-graphics.mp4',
   },
   {
     title: 'Insta Reel Edit',
     category: 'reels',
     desc: 'Fast-paced short-form reel edited for maximum scroll-stop on Instagram.',
     thumb: '/assets/placeholder-project.svg',
-    video: '',
+    video: '/assets/insta-reel.mp4',
   },
 ]
 
 // The cinematic showcase section's play button opens this in the shared
 // project modal -- in the original static site that button had no click
 // handler at all (just a decorative ripple), so clicking it silently did
-// nothing. Swap in a real showreel once one exists.
+// nothing. Drop a showreel.mp4 in public/assets/ to enable playback.
 export const SHOWCASE_REEL = {
   title: 'Showcase Reel',
   desc: 'A quick look at the range of work AK EDITS takes on — weddings, festivals, reels and motion graphics.',
   thumb: '/assets/placeholder-profile.svg',
-  video: '',
+  video: '/assets/showreel.mp4',
 }
 
 export const PRICING = [
