@@ -12,7 +12,7 @@ export default function Portfolio() {
     <section id="portfolio">
       <div className="container">
         <div ref={headRef} className={`section-head reveal${headVisible ? ' in' : ''}`}>
-          <span className="eyebrow">Selected Projects</span>
+          <span className="kicker">Selected Projects</span>
           <h2>My Work</h2>
         </div>
         <div className="filter-bar">

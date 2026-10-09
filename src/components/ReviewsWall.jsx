@@ -28,7 +28,7 @@ export default function ReviewsWall({ reviews, loading }) {
   return (
     <div className="container reviews-wall">
       <div className="section-head" style={{ marginBottom: '2rem' }}>
-        <span className="eyebrow">What Clients Say</span>
+        <span className="kicker">What Clients Say</span>
         <h2 style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.6rem)' }}>Client Reviews</h2>
         {reviews.length > 0 && (
           <div className="reviews-summary">

@@ -11,7 +11,7 @@ export default function Pricing() {
     <section id="pricing">
       <div className="container">
         <div ref={headRef} className={`section-head reveal${headVisible ? ' in' : ''}`}>
-          <span className="eyebrow">Investment</span>
+          <span className="kicker">Investment</span>
           <h2>Pricing</h2>
           <p className="pricing-intro">
             Every project is different — final pricing depends on duration, complexity, editing style, number of

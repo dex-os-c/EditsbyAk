@@ -10,7 +10,7 @@ export default function Process() {
     <section id="process">
       <div className="container">
         <div ref={headRef} className={`section-head reveal${headVisible ? ' in' : ''}`}>
-          <span className="eyebrow">How It Works</span>
+          <span className="kicker">How It Works</span>
           <h2>Work Process</h2>
         </div>
         <div className="process-list">
