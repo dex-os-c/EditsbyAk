@@ -31,7 +31,7 @@ export default function Header() {
             <a key={link.href} href={link.href}>{link.label}</a>
           ))}
         </nav>
-        <a href="#contact" className="nav-cta">Let's Talk</a>
+        <a href="#contact" className="btn btn-primary header-cta">Let's Talk</a>
         <button
           className={`hamburger${menuOpen ? ' open' : ''}`}
           aria-label="Menu"
