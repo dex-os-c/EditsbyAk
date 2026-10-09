@@ -1,22 +1,47 @@
 :root {
-  --black: #08080a;
-  --black-soft: #111114;
-  --charcoal: #1a1a1e;
-  --glass: rgba(255, 255, 255, 0.04);
-  --glass-border: rgba(255, 255, 255, 0.09);
-  --crimson: #c81e3a;
-  --crimson-bright: #ff2d4d;
-  --crimson-dim: #5c0e1c;
-  --white: #f5f4f2;
-  --gray: #8f8f96;
-  --gray-dim: #5a5a60;
+  /* One true near-black, not a layered black/charcoal/glass system. */
+  --ink: #0a0a0a;
+  --paper: #141311;
+  --bone: #ece6da;
+  --smoke: #7a7466;
 
-  --font-display: 'Anton', sans-serif;
-  --font-label: 'Bebas Neue', sans-serif;
-  --font-body: 'Inter', sans-serif;
+  /* Tally-light red: a cinema "recording" red, spent sparingly --
+     play affordances, the live-review dot, a single rule. Not smeared
+     across every headline and card border. */
+  --tally: #d82d2d;
+  --tally-dim: #4a1414;
 
-  --header-h: 5.5rem;
-  --section-x: clamp(1.5rem, 5vw, 4rem);
-  --section-y: clamp(5rem, 10vw, 9rem);
-  --container-max: 1280px;
+  /* Brass: film-reel / vintage-lens warmth, the secondary accent that
+     keeps the palette from reading as "dark theme + one neon color". */
+  --brass: #c9a24b;
+
+  --rule: rgba(236, 230, 218, 0.14);
+  --rule-strong: rgba(236, 230, 218, 0.28);
+
+  --font-display: 'Big Shoulders Display', sans-serif;
+  --font-body: 'IBM Plex Sans', sans-serif;
+
+  --header-h: 4.75rem;
+  --edge: clamp(1.5rem, 5vw, 4.5rem);
+  --rhythm: clamp(5rem, 11vw, 10rem);
+  --container-max: 1360px;
+
+  /* Compatibility aliases: sections not yet ported to the new token
+     names (Services/Portfolio/Pricing/Process/Contact/Footer/Stats)
+     still reference these. Mapping them here means those sections
+     render correctly with the new palette instead of hitting an
+     undefined custom property -- remove an alias once every section
+     using it has been migrated to the new name directly. */
+  --crimson: var(--tally);
+  --crimson-bright: var(--tally);
+  --crimson-dim: var(--tally-dim);
+  --black: var(--ink);
+  --black-soft: var(--ink);
+  --charcoal: var(--paper);
+  --glass: rgba(236, 230, 218, 0.04);
+  --glass-border: var(--rule);
+  --white: var(--bone);
+  --gray: var(--smoke);
+  --gray-dim: var(--smoke);
+  --font-label: var(--font-body);
 }

@@ -10,9 +10,7 @@ html {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
+  html { scroll-behavior: auto; }
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
@@ -22,117 +20,97 @@ html {
 }
 
 body {
-  background: var(--black);
-  color: var(--white);
+  background: var(--ink);
+  color: var(--bone);
   font-family: var(--font-body);
   overflow-x: hidden;
+  cursor: none;
+}
+@media (hover: none), (max-width: 860px) {
+  body { cursor: auto; }
 }
 
 ::selection {
-  background: var(--crimson);
-  color: #fff;
+  background: var(--tally);
+  color: var(--ink);
 }
 
-::-webkit-scrollbar {
-  width: 8px;
-}
-::-webkit-scrollbar-track {
-  background: var(--black);
-}
-::-webkit-scrollbar-thumb {
-  background: var(--crimson-dim);
-  border-radius: 4px;
-}
+::-webkit-scrollbar { width: 7px; }
+::-webkit-scrollbar-track { background: var(--ink); }
+::-webkit-scrollbar-thumb { background: var(--tally-dim); }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
-img {
-  display: block;
-  max-width: 100%;
-}
-button {
-  font-family: inherit;
-  cursor: pointer;
-  color: inherit;
-}
-input, select, textarea {
-  font-family: inherit;
-}
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; }
+button { font-family: inherit; cursor: inherit; color: inherit; background: none; border: none; }
+input, select, textarea { font-family: inherit; }
 
 h1, h2, h3 {
   font-family: var(--font-display);
-  font-weight: 400;
-  text-transform: uppercase;
-  line-height: 1.05;
+  font-weight: 700;
+  line-height: 0.94;
+  letter-spacing: -0.01em;
 }
 
 :focus-visible {
-  outline: 2px solid var(--crimson-bright);
+  outline: 2px solid var(--tally);
   outline-offset: 3px;
-}
-
-.eyebrow {
-  font-family: var(--font-label);
-  letter-spacing: 0.35em;
-  font-size: 0.78rem;
-  color: var(--crimson-bright);
-  text-transform: uppercase;
 }
 
 .container {
   max-width: var(--container-max);
   margin: 0 auto;
+  padding: 0 var(--edge);
 }
 
 section {
   position: relative;
-  padding: var(--section-y) var(--section-x);
+  padding: var(--rhythm) 0;
+}
+
+/* Section labels carry real information (a count, a range) rather than
+   being a decorative tracked-out all-caps tag repeated above every
+   heading -- so this is sentence case, small, and quiet. */
+.kicker {
+  font-size: 0.8rem;
+  color: var(--smoke);
+  margin-bottom: 0.6rem;
+}
+.kicker b {
+  color: var(--brass);
+  font-weight: 600;
+}
+
+.rule {
+  border: none;
+  border-top: 1px solid var(--rule);
 }
 
 .btn {
-  display: inline-block;
-  font-family: var(--font-label);
-  letter-spacing: 0.15em;
-  font-size: 0.85rem;
-  padding: 0.95rem 2rem;
-  border-radius: 100px;
-  border: none;
-  transition: transform 0.25s cubic-bezier(.2,.8,.2,1), box-shadow 0.3s ease, border-color 0.3s ease;
-}
-.btn:active {
-  transform: scale(0.96);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 0.85rem 1.7rem;
+  border: 1px solid var(--rule-strong);
+  transition: border-color 0.25s ease, background 0.25s ease, color 0.25s ease;
 }
 .btn-primary {
-  background: var(--crimson);
-  color: #fff;
+  background: var(--bone);
+  color: var(--ink);
+  border-color: var(--bone);
 }
 .btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 30px rgba(200, 30, 58, 0.45);
+  background: var(--tally);
+  border-color: var(--tally);
+  color: var(--bone);
 }
-.btn-secondary {
-  border: 1px solid var(--glass-border);
-  background: var(--glass);
-  backdrop-filter: blur(10px);
-  color: var(--white);
+.btn-ghost {
+  color: var(--bone);
 }
-.btn-secondary:hover {
-  border-color: var(--white);
-  transform: translateY(-2px);
-}
-
-/* Generic scroll-reveal: elements start hidden and fade/slide in once
-   useReveal's IntersectionObserver adds `.in`. */
-.reveal {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.7s ease, transform 0.7s ease;
-}
-.reveal.in {
-  opacity: 1;
-  transform: translateY(0);
+.btn-ghost:hover {
+  border-color: var(--bone);
 }
 
 .visually-hidden {
@@ -142,4 +120,19 @@ section {
   overflow: hidden;
   clip: rect(0 0 0 0);
   white-space: nowrap;
+}
+
+/* A single reveal mechanism, used deliberately in one or two places
+   (a headline mask on load, a cue the first time a gallery is in view)
+   rather than stapled to every card -- see the frontend-design note on
+   scattered fade-up entrances reading as generated. */
+.mask-reveal {
+  overflow: hidden;
+}
+.mask-reveal > * {
+  transform: translateY(110%);
+  transition: transform 0.9s cubic-bezier(.16,1,.3,1);
+}
+.mask-reveal.in > * {
+  transform: translateY(0);
 }
