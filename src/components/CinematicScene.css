@@ -1,0 +1,44 @@
+.cinema-wrap {
+  position: relative;
+  /* Tall scroll zone the canvas stays pinned across while GSAP scrubs the
+     camera through it; see CinematicScene.jsx. Collapses to a single
+     screen (no pin, no scrub) under prefers-reduced-motion or when WebGL
+     isn't available, so the hero still works everywhere. */
+  height: 320vh;
+}
+.cinema-wrap.static {
+  height: 100vh;
+}
+.cinema-pin {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  background: var(--ink);
+}
+.cinema-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.cinema-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  opacity: 0;
+  transform: translateY(24px);
+}
+.cinema-overlay.static {
+  opacity: 1;
+  transform: none;
+}
+.cinema-fallback-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 50% at 70% 35%, rgba(216, 45, 45, 0.14), transparent 60%),
+    radial-gradient(ellipse 50% 40% at 20% 70%, rgba(201, 162, 75, 0.1), transparent 60%),
+    var(--ink);
+}
