@@ -1,0 +1,43 @@
+.cursor-dot, .cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 9000;
+  transform: translate(-50%, -50%);
+}
+.cursor-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--tally);
+  transition: opacity 0.2s ease;
+}
+.cursor-ring {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1px solid var(--rule-strong);
+  transition: width 0.25s ease, height 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cursor-ring.play {
+  width: 64px;
+  height: 64px;
+  background: var(--ink);
+  border-color: var(--bone);
+}
+.cursor-ring .label {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  color: var(--bone);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+.cursor-ring.play .label {
+  opacity: 1;
+}
